@@ -2,7 +2,7 @@
 var context = canvas.getContext("2d");
 //var canvasT = document.getElementById("canvasT");
 //var contextT = canvasT.getContext("2d");
-var pi = Math.PI;                           0
+var pi = Math.PI;
 var points = new Array;
 var flowers = new Array;
 var num;
@@ -66,12 +66,12 @@ function drawFlowers(){
 
 function drawText(){
    context.fillStyle = "rgba(255,100,50,0.05)";
-   context.fillText("I LOVE ME",-180,150);
+   context.fillText("I LOVE YOU",-180,150);
 }
 
 function drawName(){
    context.fillStyle = "rgba(255,70,70,0.06)";
-   context.fillText("     顾孝立",-180,230);
+   context.fillText("     金大王",-180,230);
 }
 
 function changebkg(){

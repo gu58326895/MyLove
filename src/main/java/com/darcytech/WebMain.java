@@ -10,7 +10,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 @SpringBootApplication
-@ServletComponentScan
 public class WebMain {
 
     public static void main(String[] args) {
