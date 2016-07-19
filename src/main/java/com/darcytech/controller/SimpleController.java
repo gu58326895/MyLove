@@ -19,7 +19,7 @@ public class SimpleController {
 
     @RequestMapping("/index")
     public String index() {
-        return "redirect:/flower.html";
+        return "redirect:/snow.html";
     }
 
     @RequestMapping("/dateTest")
