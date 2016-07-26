@@ -1,14 +1,19 @@
 package com.darcytech.controller;
 
+import com.darcytech.dao.VisitLogDao;
 import com.darcytech.model.User;
+import com.darcytech.model.VisitLog;
 import com.darcytech.web.RandomString;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import java.util.Date;
 import java.util.regex.Pattern;
 
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by darcy on 2015/12/30.
@@ -17,8 +22,31 @@ import java.util.regex.Pattern;
 @Controller
 public class SimpleController {
 
+
+    @Autowired
+    VisitLogDao visitLogDao;
+
+
+
     @RequestMapping("/index")
-    public String index() {
+    public String index(HttpServletRequest request) {
+        String from = request.getHeader("user-agent");
+        if(from.contains("Android")) {
+            from = "Android移动客户端";
+        } else if(from.contains("iPhone")) {
+            from = "iPhone移动客户端";
+
+        }  else if(from.contains("iPad")) {
+            from ="iPad客户端";
+        }  else if(from.contains("Windows ")){
+            from = "windows客户端";
+        }  else{
+            from ="其他客户端";
+        }
+        VisitLog vl = new VisitLog();
+        vl.setTime(new Date());
+        vl.setSource(from);
+        visitLogDao.save(vl);
         return "redirect:/snow.html";
     }
 
@@ -28,6 +56,7 @@ public class SimpleController {
         System.out.println(user.getTime());
 
     }
+
 
     @RequestMapping("abc")
     public ModelAndView a() {
