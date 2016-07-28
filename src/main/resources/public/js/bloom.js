@@ -9,7 +9,7 @@ var num;
 
 var imageData;
 var pixels;
-var backgd = document.getElementById("backgd");
+var backgd = document.getElementById("Body");
 
 var k = 0;
 var i = 50;
@@ -106,4 +106,4 @@ function outline(){
 
 }
 
-outline();
+//outline();

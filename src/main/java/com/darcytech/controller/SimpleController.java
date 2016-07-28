@@ -3,6 +3,7 @@ package com.darcytech.controller;
 import com.darcytech.dao.VisitLogDao;
 import com.darcytech.model.User;
 import com.darcytech.model.VisitLog;
+import com.darcytech.service.VisitLogService;
 import com.darcytech.web.RandomString;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class SimpleController {
 
 
     @Autowired
-    VisitLogDao visitLogDao;
+    VisitLogService visitLogService;
 
 
 
@@ -46,7 +47,7 @@ public class SimpleController {
         VisitLog vl = new VisitLog();
         vl.setTime(new Date());
         vl.setSource(from);
-        visitLogDao.save(vl);
+        visitLogService.save(vl);
         return "redirect:/snow.html";
     }
 

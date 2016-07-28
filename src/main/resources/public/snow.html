@@ -2,253 +2,331 @@
 <html lang="en">
 
 <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 
 <title>Love you 金大王</title>
 
 <head>
 
-<script>
+  <script>
 
-var frontSnow,backSnow;
-var currentPage = 1;
-var nextBnt;
+    var frontSnow, backSnow;
+    var currentPage = 1;
+    var nextBnt, yes, no;
 
-window.addEventListener("load", function(){
+    window.addEventListener("load", function () {
 
-frontSnow = document.getElementById("frontSnow");
-backSnow = document.getElementById("backSnow");
-nextBnt = document.getElementById("nextBnt");
-nextBnt.addEventListener("click",function(){
-	nextPage();
+      frontSnow = document.getElementById("frontSnow");
+      backSnow = document.getElementById("backSnow");
+      nextBnt = document.getElementById("nextBnt");
+      yes = document.getElementById("yes");
+      no = document.getElementById("no");
+      nextBnt.addEventListener("click", function () {
+        nextPage();
 
-});
+      });
+      yes.addEventListener('click', function(){
+        document.getElementById('page8').style.opacity = 0;
+        document.getElementById('accept').style.opacity = 1;
+        outline();
+      });
 
-moveSnow(0);
+      no.addEventListener('click', function(){
+        document.getElementById('page8').style.opacity = 0;
+        document.getElementById('refuse').style.opacity = 1;
+      });
 
-setTimeout(function(){
+      yes.style.bottom = '10%';
+      //yes.style.left = '20%';
+      yes.style.color = "#FFF";
+      no.style.bottom = '10%';
+      //no.style.right = '20%';
+      no.style.color = "#FFF";
 
-	var page1 = document.getElementById("page1");
-	page1.style.backgroundPosition = "50% 10%";
-	page1.style.backgroundSize = "auto 80%";
-	setTimeout(function(){
-		nextBnt.style.opacity = "1";
-		nextBnt.style.bottom = "10%"; 
-	},3200);
+      moveSnow(0);
 
-} ,2700);
+      setTimeout(function () {
 
-function moveSnow(frameCount){
+        var page1 = document.getElementById("page1");
+        page1.style.backgroundPosition = "50% 10%";
+        page1.style.backgroundSize = "auto 80%";
+        setTimeout(function () {
+          nextBnt.style.opacity = "1";
+          nextBnt.style.bottom = "10%";
+        }, 3200);
 
-	frontSnow.style.backgroundPositionX = 4*frameCount+"px";
-	frontSnow.style.backgroundPositionY = 4*frameCount+"px";
+      }, 2700);
 
-	backSnow.style.backgroundPositionX = 2*frameCount+"px";
-	backSnow.style.backgroundPositionY = 2*frameCount+"px";
+      function moveSnow(frameCount) {
 
-	if(currentPage ==1 ){
-	frameCount++;
-	}
+        frontSnow.style.backgroundPositionX = 4 * frameCount + "px";
+        frontSnow.style.backgroundPositionY = 4 * frameCount + "px";
 
-	setTimeout(function(){
-		moveSnow(frameCount);
-	},65);
+        backSnow.style.backgroundPositionX = 2 * frameCount + "px";
+        backSnow.style.backgroundPositionY = 2 * frameCount + "px";
 
-}
+        if (currentPage == 1) {
+          frameCount++;
+        }
 
-function nextPage(){
-	var pageList = document.getElementsByClassName("page");
-	if(currentPage < pageList.length){
-	currentPage++;
-	//console.log(pageList.length);
-	for(i=0;i<pageList.length;i++){
-		var thePage = pageList[i];
-		thePage.style.opacity = 0;
-	}
+        setTimeout(function () {
+          moveSnow(frameCount);
+        }, 65);
 
-	var showPage = document.getElementById("page" + currentPage); 
-		showPage.style.opacity = 1;
+      }
 
-		if(currentPage == 3){
-			document.getElementById("Body").style.backgroundColor = "#000";
-			setTimeout(function(){
-				document.getElementById("starBack").style.webkitTransform= "scale(1.1)";
-				nextBnt.style.color = "#FFF";
-			},1000);
-		}
-		else if(currentPage == 4){
-			document.getElementById("Body").style.backgroundColor = "#FFF";
-			document.getElementById("starBack").style.webkitTransform= "scale(0)";
-			setTimeout(function(){
-				document.getElementById("starBack").style.backgroundColor= "#000";
-				document.getElementById("starBack").style.webkitTransform= "scale(1.1)";
-				nextBnt.style.color = "#000";
-			},1200);
-		}
-		else if(currentPage == 5){
-			document.getElementById("starBack").style.webkitTransform= "scale(0)";
-			setTimeout(function(){
-			inputReal(0);
-			},1200);
-		}
-		else if(currentPage == pageList.length){
-			nextBnt.innerHTML = "还要再看一遍吗~";
-		}
+      function nextPage() {
+        var pageList = document.getElementsByClassName("page");
+        var results = document.getElementsByName('results');
 
-	}
-	else{
-		//refresh
-		document.getElementById("realBox").innerHTML = "";
-		document.getElementById("missU").style.fontSize = "1em";
-		document.getElementById("starBack").style.webkitTransform= "scale(0)";
-		document.getElementById("starBack").style.backgroundColor= "rgba(255,255,255,0.9)"
-		document.getElementById("missU").style.fontSize = "1em";
-		nextBnt.innerHTML = "点我~";
-		missUFontSize = 1;
-		currentPage = 0;
-		nextPage();
-	}
-}
+        if (currentPage < pageList.length) {
+          currentPage++;
+          //console.log(pageList.length);
+          for (i = 0; i < pageList.length; i++) {
+            var thePage = pageList[i];
+            thePage.style.opacity = 0;
+          }
+
+          var showPage = document.getElementById("page" + currentPage);
+          showPage.style.opacity = 1;
+
+          if (currentPage == 3) {
+            document.getElementById("Body").style.backgroundColor = "#000";
+            setTimeout(function () {
+              document.getElementById("starBack").style.webkitTransform = "scale(1.1)";
+              nextBnt.style.color = "#FFF";
+            }, 1000);
+          }
+          else if (currentPage == 4) {
+            document.getElementById("Body").style.backgroundColor = "#FFF";
+            document.getElementById("starBack").style.webkitTransform = "scale(0)";
+            setTimeout(function () {
+              document.getElementById("starBack").style.backgroundColor = "#000";
+              document.getElementById("starBack").style.webkitTransform = "scale(1.1)";
+              nextBnt.style.color = "#000";
+            }, 1200);
+          }
+          else if (currentPage == 5) {
+            document.getElementById("starBack").style.webkitTransform = "scale(0)";
+            setTimeout(function () {
+              inputReal(0);
+            }, 1200);
+          }
+          else if (currentPage == 8){
+            nextBnt.style.opacity = 0;
+          }
+          else if (currentPage == pageList.length) {
+           // nextBnt.innerHTML = "还要再看一遍吗~";
+          }
+
+        }
+        else {
+          //refresh
+          document.getElementById("realBox").innerHTML = "";
+          document.getElementById("missU").style.fontSize = "1em";
+          document.getElementById("starBack").style.webkitTransform = "scale(0)";
+          document.getElementById("starBack").style.backgroundColor = "rgba(255,255,255,0.9)"
+          document.getElementById("missU").style.fontSize = "1em";
+          nextBnt.innerHTML = "点我~";
+          missUFontSize = 1;
+          currentPage = 0;
+          nextPage();
+        }
+      }
 
 
-});
+    });
 
-var missUFontSize = 1;
+    var missUFontSize = 1;
 
-function inputReal(step){
-	document.getElementById("realBox").innerHTML += "真的<br />";
-	missUFontSize += 0.4;
-	document.getElementById("missU").style.fontSize = missUFontSize + "em";
-	if(step<3){setTimeout(function(){
-		step++;
-		inputReal(step);
-	},600);}
-}
+    function inputReal(step) {
+      document.getElementById("realBox").innerHTML += "真的<br />";
+      missUFontSize += 0.4;
+      document.getElementById("missU").style.fontSize = missUFontSize + "em";
+      if (step < 3) {
+        setTimeout(function () {
+          step++;
+          inputReal(step);
+        }, 600);
+      }
+    }
 
-</script>
+  </script>
 
-<style>
+  <style>
 
-html{
-	height:100%;
-	width: 100%;
-}
+    html {
+      height: 100%;
+      width: 100%;
+    }
 
-body{
-	height: 100%;
-	width: 100%;
-	background-color: #FFF;
-	margin: 0px;
-	padding: 0px;
-	font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-	font-weight: lighter;
-	letter-spacing: 0.22em;
-	-webkit-transition: background-color 0.6s ease-in-out;
-	overflow: hidden;
-}
+    body {
+      height: 100%;
+      width: 100%;
+      background-color: #FFF;
+      margin: 0px;
+      padding: 0px;
+      font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+      font-weight: lighter;
+      letter-spacing: 0.22em;
+      -webkit-transition: background-color 0.6s ease-in-out;
+      overflow: hidden;
+    }
 
-.snowLayer{
-	height: 100%;
-	width: 100%;
-	background-size: cover;
-}
+    .snowLayer {
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+    }
 
-#frontSnow{
-	background-image: url("images/frontSnow.png");
-}
+    #frontSnow {
+      background-image: url("images/frontSnow.png");
+    }
 
-#backSnow{
-	background-image: url("images/backSnow.png");
-}
+    #backSnow {
+      background-image: url("images/backSnow.png");
+    }
 
-.page{
-position: absolute;
-height: 100%;
-width: 100%;
-/*background-color: rgba(255,200,0,0.1);*/
--webkit-transition: opacity 1s ease-in-out;
-opacity: 0;
-text-align: center;
-}
+    .page {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      /*background-color: rgba(255,200,0,0.1);*/
+      -webkit-transition: opacity 1s ease-in-out;
+      opacity: 0;
+      text-align: center;
+    }
 
-h3{
-	padding-top: 38%;
-}
+    .result {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      /*background-color: rgba(255,200,0,0.1);*/
+      -webkit-transition: opacity 1s ease-in-out;
+      opacity: 0;
+      text-align: center;
+    }
 
-#page1{
-background-size: auto 180%;
-background-position: 50% -20%;
-background-repeat: no-repeat;
-background-image: url("images/mainBack.png");
--webkit-transition: background 4s ease-in-out;
-opacity: 1;
-}
+    h3 {
+      padding-top: 38%;
+    }
 
-#page3{
-background-size: contain;
-background-position: center;
-background-repeat: no-repeat;
-background-image: url("images/star.svg");
-color: #000;
-z-index: 10;
-}
-#page4{
-color: #FFF;
-z-index: 10;
-}
+    #page1 {
+      background-size: auto 180%;
+      background-position: 50% -20%;
+      background-repeat: no-repeat;
+      background-image: url("images/mainBack.png");
+      -webkit-transition: background 4s ease-in-out;
+      opacity: 1;
+    }
 
-#page6{
-background-size: contain;
-background-position: center;
-background-repeat: no-repeat;
-background-image: url("images/heart.jpg");
-}
+    #page3 {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url("images/star.svg");
+      color: #000;
+      z-index: 10;
+    }
 
-#page7{
-background-size: contain;
-background-position: center;
-background-repeat: no-repeat;
-background-image: url("images/angel.jpg");
-}
+    #page4 {
+      color: #FFF;
+      z-index: 10;
+    }
 
-#nextBnt{
-	position: absolute;
-	z-index: 99;
-	width: 46%;
-	padding-top: 20px;
-	height: 40px;
-	cursor: pointer;
-	top: auto;
-	bottom: -15%;
-	background-color: rgba(65,65,65,0.2);
-	border-radius: 12px;
-	right:0px;
-	left:0px;
-	margin: auto;
-	text-align: center;
-	font-size: 1.2em;
-	opacity: 0;
-	-webkit-transition: all 1.5s ease-in-out;
-}
+    #page6 {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url("images/heart.jpg");
+    }
 
-#starBack{
-	position: absolute;
-	border-radius: 50%;
-	top: 13%;
-	right: 0px;
-	left:0px;
-	bottom: auto;
-	margin: auto;
-	height: 240px;
-	width: 240px;
-	opacity: 1;
-	background-color: rgba(255,255,255,0.90);
-	z-index: 9;
-	-webkit-transform:scale(0);
-	-webkit-transition: -webkit-transform 0.7s ease-in-out;
-}
+    #page7 {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url("images/angel.jpg");
+    }
 
-</style>
+    #refuse {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url("images/goodbye.jpeg");
+    }
+
+    #nextBnt {
+      position: absolute;
+      z-index: 99;
+      width: 46%;
+      padding-top: 20px;
+      height: 40px;
+      cursor: pointer;
+      top: auto;
+      bottom: -15%;
+      background-color: rgba(65, 65, 65, 0.2);
+      border-radius: 12px;
+      right: 0px;
+      left: 0px;
+      margin: auto;
+      text-align: center;
+      font-size: 1.2em;
+      opacity: 0;
+      -webkit-transition: all 1.5s ease-in-out;
+    }
+    #yes {
+      position: absolute;
+      z-index:100;
+      width: 30%;
+      padding-top: 20px;
+      height: 40px;
+      cursor: pointer;
+      top: auto;
+      bottom: -15%;
+      background-color: rgba(65, 65, 65, 0.2);
+      border-radius: 12px;
+      left: 15%;
+      text-align: center;
+      font-size: 1.2em;
+      opacity: 1;
+      -webkit-transition: all 1.5s ease-in-out;
+    }
+    #no {
+      position: absolute;
+      z-index: 100;
+      width: 30%;
+      padding-top: 20px;
+      height: 40px;
+      cursor: pointer;
+      top: auto;
+      bottom: -15%;
+      background-color: rgba(65, 65, 65, 0.2);
+      border-radius: 12px;
+      right: 15%;
+      text-align: center;
+      font-size: 1.2em;
+      opacity: 1;
+      -webkit-transition: all 1.5s ease-in-out;
+    }
+
+    #starBack {
+      position: absolute;
+      border-radius: 50%;
+      top: 13%;
+      right: 0px;
+      left: 0px;
+      bottom: auto;
+      margin: auto;
+      height: 240px;
+      width: 240px;
+      opacity: 1;
+      background-color: rgba(255, 255, 255, 0.90);
+      z-index: 9;
+      -webkit-transform: scale(0);
+      -webkit-transition: -webkit-transform 0.7s ease-in-out;
+    }
+
+  </style>
 
 </head>
 
@@ -257,89 +335,109 @@ background-image: url("images/angel.jpg");
 <div id="next buttom"></div>
 
 <div class="page" id="page1">
-	<div class="snowLayer" id = "backSnow">
-		<div class="snowLayer" id = "frontSnow">
-		</div>
-	</div>
+  <div class="snowLayer" id="backSnow">
+    <div class="snowLayer" id="frontSnow">
+    </div>
+  </div>
 </div>
 
 <div class="page" id="page2">
-<h3>
-	我轻轻地尝一口你说的爱我
-	<br />
-	还在回味你给过的温柔<br>
-	伦伦~
-</h3>
+  <h3>
+    我轻轻地尝一口你说的爱我
+    <br/>
+    还在回味你给过的温柔<br>
+    伦伦~
+  </h3>
 </div>
 
 <div class="page" id="page3">
-<h3>
-你说我不会泡妞<br />
-对啊<br />
-	我也不会说甜言蜜语<br>
-但是永远记得哦~<br>
-	无论何时何地<br>
-我一直在呢
-	<br>~~~
-</h3>
+  <h3>
+    你说我不会泡妞<br/>
+    对啊<br/>
+    我也不会说甜言蜜语<br>
+    但是永远记得哦~<br>
+    无论何时何地<br>
+    我一直在呢
+    <br>~~~
+  </h3>
 </div>
 
-<div id = "starBack"></div>
+<div id="starBack"></div>
 
 <div class="page" id="page4">
-<h3>
-反正<br>我也没有跟你表过白<br />
-好啦,请,点我,<br> 啊~,点我点我
-</h3>
+  <h3>
+    反正<br>我也没有跟你表过白<br/>
+    好啦,请,点我,<br> 啊~,点我点我
+  </h3>
 </div>
 
 <div class="page" id="page5">
-<h3>
-我想跟你说~<br>我是~<br /><div id = "realBox"></div>
-<span id="missU" style="font-size:1em; color: #FF9900; text-shadow: 1px 1px 4px rgba(0,0,0,0.2);">好喜欢你</span>
-</h3>
+  <h3>
+    我想跟你说~<br>我是~<br/>
+
+    <div id="realBox"></div>
+    <span id="missU" style="font-size:1em; color: #FF9900; text-shadow: 1px 1px 4px rgba(0,0,0,0.2);">好喜欢你</span>
+  </h3>
 </div>
 
 <div class="page" id="page6">
-<h3 style = "text-shadow: 0px 0px 5px #FFF">
-  以后的事情,谁知道~<br>
-无论你现在，<br />
-享受幸福，还是承受悲伤，
-</h3>
+  <h3 style="text-shadow: 0px 0px 5px #FFF">
+    以后的事情,谁知道~<br>
+    无论你现在，<br/>
+    享受幸福，还是承受悲伤
+  </h3>
 </div>
 
 <div class="page" id="page7">
-<h3 style = "padding-top:15%;">
-  希望你<br>
-每天开心~<br />
-我的女王~。
-</h3>
-<br />
-From: <span style = "color: rgb(50,160,255);">哥哥</span><br />
-To: <span style = "color:#FF9900;">金大王</span>
-<br />
-<!-- <div id = "call" style = "letter-spacing: 0em; position:absolute; width:100%; left:0px; top:auto; bottom:10px; z-index:999;">
-	<a href="facetime:huang9239@hotmail.com">
-		Tap to call Rubin now!
-	</a>
-</div> -->
+  <h3 style="padding-top:15%;">
+    希望你<br>
+    每天开心~<br/>
+    我的女王~。
+  </h3>
+  <br/>
+  From: <span style="color: rgb(50,160,255);">哥哥</span><br/>
+  To: <span style="color:#FF9900;">金大王</span>
+  <br/>
+  <!-- <div id = "call" style = "letter-spacing: 0em; position:absolute; width:100%; left:0px; top:auto; bottom:10px; z-index:999;">
+    <a href="facetime:huang9239@hotmail.com">
+      Tap to call Rubin now!
+    </a>
+  </div> -->
 
 </div>
 
 <div class="page" id="page8">
-  <h3 style = "padding-top:15%;">
-    那么现在，问题来了？    <br>
+  <h3 style="padding-top:15%;">
+    那么现在，问题来了？ <br>
 
     你愿意跟我在一起吗
 
-   </h3>
+  </h3>
+  <div id="yes">
+   yes
+  </div>
+  <div id="no">
+    no
+  </div>
+
 
 </div>
 
-<div id = "nextBnt">
-点我~
+<div id="nextBnt">
+  点我~
 </div>
+
+
+<div class = 'result' id = 'refuse' style="opacity: 0">
+</div>
+
+<div id = "accept" style="opacity: 0">
+  <canvas id="canvas" width="600" height="600"></canvas>
+</div>
+
 
 </body>
+<script src="js/flower.js" type="text/javascript"></script>
+<script src="js/bloom.js"></script>
 
 </html>

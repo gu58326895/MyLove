@@ -4,7 +4,7 @@
 
     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
         <encoder charset="UTF-8">
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level - %msg%n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
@@ -12,6 +12,8 @@
         <appender-ref ref="stdout"/>
     </root>
 
-    <logger name="com.darcytech.sandbox" level="DEBUG"/>
+    <logger name="org" level="INFO"/>
+    <logger name="com" level="INFO,WARN"/>
+
 
 </configuration>
