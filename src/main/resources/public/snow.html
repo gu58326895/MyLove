@@ -3,7 +3,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-
+<link rel="Stylesheet" type="text/css" href="css/flower.css"/>
 <title>Love you 金大王</title>
 
 <head>
@@ -25,13 +25,13 @@
         nextPage();
 
       });
-      yes.addEventListener('click', function(){
+      yes.addEventListener('click', function () {
         document.getElementById('page8').style.opacity = 0;
         document.getElementById('accept').style.opacity = 1;
         outline();
       });
 
-      no.addEventListener('click', function(){
+      no.addEventListener('click', function () {
         document.getElementById('page8').style.opacity = 0;
         document.getElementById('refuse').style.opacity = 1;
       });
@@ -112,11 +112,11 @@
               inputReal(0);
             }, 1200);
           }
-          else if (currentPage == 8){
+          else if (currentPage == 8) {
             nextBnt.style.opacity = 0;
           }
           else if (currentPage == pageList.length) {
-           // nextBnt.innerHTML = "还要再看一遍吗~";
+            // nextBnt.innerHTML = "还要再看一遍吗~";
           }
 
         }
@@ -274,9 +274,10 @@
       opacity: 0;
       -webkit-transition: all 1.5s ease-in-out;
     }
+
     #yes {
       position: absolute;
-      z-index:100;
+      z-index: 100;
       width: 30%;
       padding-top: 20px;
       height: 40px;
@@ -291,6 +292,7 @@
       opacity: 1;
       -webkit-transition: all 1.5s ease-in-out;
     }
+
     #no {
       position: absolute;
       z-index: 100;
@@ -392,7 +394,7 @@
   <h3 style="padding-top:15%;">
     希望你<br>
     每天开心~<br/>
-    我的女王~。
+    我的女王~
   </h3>
   <br/>
   From: <span style="color: rgb(50,160,255);">哥哥</span><br/>
@@ -413,8 +415,9 @@
     你愿意跟我在一起吗
 
   </h3>
+
   <div id="yes">
-   yes
+    yes
   </div>
   <div id="no">
     no
@@ -428,10 +431,10 @@
 </div>
 
 
-<div class = 'result' id = 'refuse' style="opacity: 0">
+<div class='result' id='refuse' style="opacity: 0">
 </div>
 
-<div id = "accept" style="opacity: 0">
+<div id="accept" style="opacity: 0">
   <canvas id="canvas" width="600" height="600"></canvas>
 </div>
 

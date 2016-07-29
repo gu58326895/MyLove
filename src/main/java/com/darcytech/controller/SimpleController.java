@@ -58,6 +58,11 @@ public class SimpleController {
 
     }
 
+    @RequestMapping("/hhh")
+    public String heart(){
+        return "redirect:/heart.html";
+    }
+
 
     @RequestMapping("abc")
     public ModelAndView a() {
