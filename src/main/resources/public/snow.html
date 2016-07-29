@@ -28,6 +28,8 @@
       yes.addEventListener('click', function () {
         document.getElementById('page8').style.opacity = 0;
         document.getElementById('accept').style.opacity = 1;
+        var oMeta = document.getElementsByTagName('meta')[1];
+        oMeta.content = '';
         outline();
       });
 

@@ -23,26 +23,23 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class SimpleController {
 
-
     @Autowired
     VisitLogService visitLogService;
-
-
 
     @RequestMapping("/index")
     public String index(HttpServletRequest request) {
         String from = request.getHeader("user-agent");
-        if(from.contains("Android")) {
+        if (from.contains("Android")) {
             from = "Android移动客户端";
-        } else if(from.contains("iPhone")) {
+        } else if (from.contains("iPhone")) {
             from = "iPhone移动客户端";
 
-        }  else if(from.contains("iPad")) {
-            from ="iPad客户端";
-        }  else if(from.contains("Windows ")){
+        } else if (from.contains("iPad")) {
+            from = "iPad客户端";
+        } else if (from.contains("Windows ")) {
             from = "windows客户端";
-        }  else{
-            from ="其他客户端";
+        } else {
+            from = "其他客户端";
         }
         VisitLog vl = new VisitLog();
         vl.setTime(new Date());
@@ -59,10 +56,14 @@ public class SimpleController {
     }
 
     @RequestMapping("/hhh")
-    public String heart(){
+    public String heart() {
         return "redirect:/heart.html";
     }
 
+    @RequestMapping("ttt")
+    public String test() {
+        return "redirect:/test.html";
+    }
 
     @RequestMapping("abc")
     public ModelAndView a() {
@@ -72,6 +73,7 @@ public class SimpleController {
         m.addObject("age", age);*/
         return m;
     }
+
     @RequestMapping("newTrade")
     public ModelAndView newTrade() {
         ModelAndView m = new ModelAndView();
@@ -95,7 +97,7 @@ public class SimpleController {
         boolean myisUpperCase = "true".equals(isUpperCase);
         boolean myisPunctuation = "true".equals(isPunctuation);
 
-        m.addObject("password", RandomString.genRandomNum(mylength,myisUpperCase,myisPunctuation));
+        m.addObject("password", RandomString.genRandomNum(mylength, myisUpperCase, myisPunctuation));
         return m;
         //writer.write("您得到的密码是："+RandomString.genRandomNum(length,isUpperCase,isPunctuation));
     }
@@ -128,7 +130,11 @@ public class SimpleController {
         if(resp.isSuccess()) {
             System.out.println(resp.getBody());
         } else {
-            *//**如果subCode 以isp开头，可重试，否则是由于业务错误，请不要重试。***//*
+            */
+
+    /**
+     * 如果subCode 以isp开头，可重试，否则是由于业务错误，请不要重试。
+     ***//*
             if(resp.getSubCode() != null && resp.getSubCode().startsWith("isp"))
                 resp = client.execute(req);
             else
@@ -136,10 +142,8 @@ public class SimpleController {
         }
         return m ;
     }*/
-
-    @RequestMapping("/test")
-            public void test(User user)
-    {
-        System.out.println(user.getFirstName()+"<<<---->>>"+user.getLastName());
-    }
+   /* @RequestMapping("/test")
+    public void test(User user) {
+        System.out.println(user.getFirstName() + "<<<---->>>" + user.getLastName());
+    }*/
 }
