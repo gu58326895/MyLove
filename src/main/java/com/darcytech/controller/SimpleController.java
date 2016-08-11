@@ -9,6 +9,7 @@ import com.darcytech.web.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
@@ -100,6 +101,17 @@ public class SimpleController {
         m.addObject("password", RandomString.genRandomNum(mylength, myisUpperCase, myisPunctuation));
         return m;
         //writer.write("您得到的密码是："+RandomString.genRandomNum(length,isUpperCase,isPunctuation));
+    }
+
+
+
+    @RequestMapping("/writeLog")
+    @ResponseBody
+    public Object writeLog(String result) {
+        VisitLog vl = new VisitLog();
+        vl.setTime(new Date());
+        vl.setMemo(result);
+        return visitLogService.save(vl);
     }
 
   /*  @RequestMapping("sanbox")

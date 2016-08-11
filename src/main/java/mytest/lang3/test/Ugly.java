@@ -1,11 +1,17 @@
 package mytest.lang3.test;
 
-public class Ugly{
+public class Ugly {
 
-    public static void main(String[] args) {
+
+    static class Person{
 
     }
 
 
+    Person p = new Person();
+    static void test(){
+
+    }
 
 }
+

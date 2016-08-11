@@ -25,7 +25,9 @@ public class VisitLog {
     private String source;
 
     @DateTimeFormat
-    private Date time ;
+    private Date time;
+
+    private String memo;
 
     public long getId() {
         return id;
@@ -49,5 +51,13 @@ public class VisitLog {
 
     public void setTime(Date time) {
         this.time = time;
+    }
+
+    public String getMemo() {
+        return memo;
+    }
+
+    public void setMemo(String memo) {
+        this.memo = memo;
     }
 }
