@@ -5,6 +5,7 @@ import com.darcytech.model.User;
 import com.darcytech.model.VisitLog;
 import com.darcytech.service.VisitLogService;
 import com.darcytech.web.RandomString;
+import com.sun.corba.se.spi.ior.ObjectKey;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -112,6 +113,11 @@ public class SimpleController {
         vl.setTime(new Date());
         vl.setMemo(result);
         return visitLogService.save(vl);
+    }
+
+    @RequestMapping("/socket")
+    public Object socket(){
+        return "redirect:/sendMessage.html";
     }
 
   /*  @RequestMapping("sanbox")
