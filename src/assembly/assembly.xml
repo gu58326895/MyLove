@@ -1,0 +1,37 @@
+<assembly>
+    <id>bin</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <outputDirectory>bin</outputDirectory>
+            <directory>src/script/</directory>
+            <includes>
+                <include>**/*.sh</include>
+            </includes>
+        </fileSet>
+
+        <fileSet>
+            <outputDirectory>/config</outputDirectory>
+            <directory>${project.basedir}/src/main/resources</directory>
+            <includes>
+                <include>**/*.properties</include>
+                <include>**/*.xml</include>
+            </includes>
+        </fileSet>
+
+    </fileSets>
+
+
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>lib</outputDirectory>
+            <unpack>false</unpack>
+            <useProjectArtifact>true</useProjectArtifact>
+            <scope>runtime</scope>
+        </dependencySet>
+    </dependencySets>
+
+</assembly>

@@ -16,8 +16,8 @@ public class Main {
 
         // 新建HashSet对象
         HashSet set = new HashSet();
-        set.add(p1);
-        set.add(p2);
+        //set.add(p1);
+       // set.add(p2);
        // set.add(p3);
         //set.add(p4);
 
@@ -37,7 +37,7 @@ public class Main {
         int age;
         String name;
 
-        public Person(String name, int age) {
+        Person(String name, int age) {
             this.name = name;
             this.age = age;
         }
