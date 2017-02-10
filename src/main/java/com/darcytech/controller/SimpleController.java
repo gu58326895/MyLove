@@ -49,13 +49,6 @@ public class SimpleController {
         return "redirect:/snow.html";
     }
 
-    @RequestMapping("/dateTest")
-    public void dateTest(User user) {
-        System.out.println(user.getFirstName());
-        System.out.println(user.getTime());
-
-    }
-
     @RequestMapping("/hhh")
     public String heart() {
         return "redirect:/heart.html";
@@ -119,48 +112,9 @@ public class SimpleController {
         return "redirect:/sendMessage.html";
     }
 
-  /*  @RequestMapping("sanbox")
-    public ModelAndView sanbox()
-    {
-        ModelAndView m = new ModelAndView();
-        String appKey="test";
-        String appSecret="test";
-        String serverUrl = "http://gw.api.tbsandbox.com/router/rest";
-        *//**创建client**//*
-        DefaultTaobaoClient client = new DefaultTaobaoClient(serverUrl , appKey , appSecret, "json");
-        UserSellerGetRequest req = new UserSellerGetRequest();
-        *//**设置API业务入参**//*
-        req.setFields("nick,email");
-        req.setNick("sandbox_c_1");
-        UserSellerGetResponse resp = client.execute(req );
-        *//**正常请求，获取用户信息，由于email是需要用户授权才能获取，因此返回的信息中不包含emaill信息**//*
-        System.out.println(resp.getBody());
+    @RequestMapping("/home")
+    public String home(){
+        return "home";
+    }
 
-        *//**传入用户授权的sessionkey， 可获取用户 的email**//*
-        resp = client.execute(req, "6101813112fbded1142381ece45b633a381c53976144a932074082786");
-        System.out.println(resp.getBody());
-
-        *//**传入不存在的nick ，对错误进行处理****//*
-        req.setNick("sandbox_nouser");
-        resp = client.execute(req);
-
-        if(resp.isSuccess()) {
-            System.out.println(resp.getBody());
-        } else {
-            */
-
-    /**
-     * 如果subCode 以isp开头，可重试，否则是由于业务错误，请不要重试。
-     ***//*
-            if(resp.getSubCode() != null && resp.getSubCode().startsWith("isp"))
-                resp = client.execute(req);
-            else
-                System.out.println(resp.getBody());
-        }
-        return m ;
-    }*/
-   /* @RequestMapping("/test")
-    public void test(User user) {
-        System.out.println(user.getFirstName() + "<<<---->>>" + user.getLastName());
-    }*/
 }
