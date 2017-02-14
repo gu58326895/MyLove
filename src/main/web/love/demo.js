@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import _ from 'lib/wrapLodash'
 
 const write = () => {
   let a = {};
@@ -7,5 +7,5 @@ const write = () => {
 };
 
 export default {
-  write: write
+  write
 }
