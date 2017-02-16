@@ -1,4 +1,4 @@
-package com.darcytech.service;
+package com.darcytech.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,8 +13,8 @@ import com.darcytech.model.User;
  * Created by guxiaoli on 2017/2/10.
  */
 
-@Service
-public class LoveUserDetailService implements UserDetailsService {
+@Service("loveUserDetailService")
+public class LoveUserDetailServiceImpl implements UserDetailsService {
 
 
     @Autowired
@@ -23,9 +23,9 @@ public class LoveUserDetailService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userDao.findByUsername(username);
-        if(user==null){
-
+        if (user == null) {
+            throw new UsernameNotFoundException(username);
         }
-        return userDao.findByUsername(username);
+        return user;
     }
 }

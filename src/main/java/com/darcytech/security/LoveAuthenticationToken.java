@@ -11,17 +11,45 @@ import org.springframework.security.core.GrantedAuthority;
  */
 public class LoveAuthenticationToken extends AbstractAuthenticationToken {
 
+
+    private String username;
+
+    private Object principal;
+
+    private Object credentials;
+
     public LoveAuthenticationToken() {
         super(null);
     }
 
+    public LoveAuthenticationToken(String username, Object credentials) {
+        super(null);
+        this.username = username;
+        this.credentials = credentials;
+        this.setAuthenticated(false);
+    }
+
+    LoveAuthenticationToken(Object principal){
+        super(null);
+        this.principal = principal;
+        this.setAuthenticated(true);
+    }
+
     @Override
     public Object getCredentials() {
-        return null;
+        return credentials;
     }
 
     @Override
     public Object getPrincipal() {
-        return null;
+        return principal;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

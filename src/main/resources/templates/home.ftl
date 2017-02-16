@@ -6,6 +6,8 @@
 </head>
 <body>
 
-<h1>home!~</h1>
+<h1>登陆成功 ~~~~~~~~home!~</h1>
+
+<a href="/logout">退出呀</a>
 </body>
 </html>
