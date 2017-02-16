@@ -19,11 +19,15 @@ var config = {
         query: {
           presets: ['es2015']
         }
+      },
+      {
+        test: /\.html$/,
+        loader: 'html'
       }
     ]
   },
   resolve: {
-    extensions: ['', '.js'],
+    extensions: ['', '.js', '.html'],
     root: __dirname,
     alias: {
 

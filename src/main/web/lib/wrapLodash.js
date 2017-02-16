@@ -5,6 +5,7 @@ import _each from 'lodash/each'
 import _compact from 'lodash/compact'
 import _uniq from 'lodash/uniq'
 import _find from 'lodash/find'
+import _partial from 'lodash/partial'
 
 const obj = {
    set: _set,
@@ -13,7 +14,8 @@ const obj = {
    each: _each,
    compact: _compact,
    uniq: _uniq,
-   find: _find
+   find: _find,
+   partial: _partial
 }
 
 const chain = (value) => {

@@ -1,3 +1,4 @@
-import demo from 'love/demo'
+import ng from 'base/ngRequire';
+import demoComponent from 'component/demo/demo.js';
 
-demo.write();
+ng.bootstrap();
