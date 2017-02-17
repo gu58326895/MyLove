@@ -2,9 +2,10 @@ import ng from 'base/ngRequire'
 import template from './demo.html'
 import demoService from 'service/demoService'
 import modal from 'widget/modal/modal.js';
-import modalDemo from './modalDemo.js'
-import routeDemo from './routeDemo.js'
-import route2 from './route2.js'
+import './modalDemo.js'
+import './routeDemo.js'
+import './route2.js'
+import 'css/demo/index2.css'
 
 function Demo() {
   let self = this;

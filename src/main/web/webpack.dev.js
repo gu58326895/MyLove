@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var WebpackDevServer = require("webpack-dev-server");
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var config = {
   entry: {
@@ -9,6 +10,9 @@ var config = {
     path: __dirname,
     filename: 'bundle.js'
   },
+  plugins: [
+    new ExtractTextPlugin('myLove.css')
+  ],
   devtool: 'source-map',
   module: {
     loaders: [
@@ -23,11 +27,15 @@ var config = {
       {
         test: /\.html$/,
         loader: 'html'
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader")
       }
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.html'],
+    extensions: ['', '.js', '.html', '.css'],
     root: __dirname,
     alias: {
 
