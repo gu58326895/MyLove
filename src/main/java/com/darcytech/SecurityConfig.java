@@ -81,7 +81,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/").permitAll()
+                .antMatchers("/","/es/*","/send").permitAll()
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/login").permitAll();
         http.logout().logoutUrl("/logout").logoutSuccessUrl("/login").permitAll();

@@ -7,8 +7,11 @@ import com.darcytech.service.VisitLogService;
 import com.darcytech.web.RandomString;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,6 +29,22 @@ public class SimpleController {
 
     @Autowired
     VisitLogService visitLogService;
+
+
+    @Autowired
+    private JavaMailSender mailSender;
+
+
+    @RequestMapping("/send")
+    public String send(){
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("1179942487@qq.com");//发送者.
+        message.setTo("1009388154@qq.com");//接收者.
+        message.setSubject("测试邮件（邮件主题）");//邮件主题.
+        message.setText("这是邮件内容");//邮件内容.
+        mailSender.send(message);//发送邮件
+        return "";
+    }
 
     @RequestMapping("/index")
     public String index(HttpServletRequest request) {
@@ -116,5 +135,7 @@ public class SimpleController {
     public String home(){
         return "home";
     }
+
+
 
 }

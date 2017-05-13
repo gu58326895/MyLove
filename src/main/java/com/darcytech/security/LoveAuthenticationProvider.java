@@ -35,7 +35,7 @@ public class LoveAuthenticationProvider extends DaoAuthenticationProvider {
 
 
     private void checkUser(User loadUser, LoveAuthenticationToken token) {
-        if (token.getCredentials() == null) {
+        /*if (token.getCredentials() == null) {
             logger.debug("Authentication failed: no credentials provided");
 
             throw new BadCredentialsException(messages.getMessage(
@@ -50,7 +50,7 @@ public class LoveAuthenticationProvider extends DaoAuthenticationProvider {
             throw new BadCredentialsException(messages.getMessage(
                     "AbstractUserDetailsAuthenticationProvider.badCredentials",
                     "Bad credentials"));
-        }
+        }*/
     }
 
 
