@@ -6,9 +6,12 @@ import com.darcytech.model.VisitLog;
 import com.darcytech.service.VisitLogService;
 import com.darcytech.web.RandomString;
 
+import org.hibernate.annotations.SourceType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.parsing.SourceExtractor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,7 +32,7 @@ public class SimpleController {
 
     @RequestMapping("/index")
     public String index(HttpServletRequest request) {
-        String from = request.getHeader("user-agent");
+        /*String from = request.getHeader("user-agent");
         if (from.contains("Android")) {
             from = "Android移动客户端";
         } else if (from.contains("iPhone")) {
@@ -45,16 +48,17 @@ public class SimpleController {
         VisitLog vl = new VisitLog();
         vl.setTime(new Date());
         vl.setSource(from);
-        visitLogService.save(vl);
+        visitLogService.save(vl);*/
         return "redirect:/snow.html";
     }
 
     @RequestMapping("/dateTest")
-    public void dateTest(User user) {
-        System.out.println(user.getFirstName());
-        System.out.println(user.getTime());
-
+    public void dateTest() {
+        System.out.println("进来");
+        new Thread(new Run()).start();
+        System.out.println("返回");
     }
+
 
     @RequestMapping("/hhh")
     public String heart() {
@@ -85,7 +89,7 @@ public class SimpleController {
     }
 
     @RequestMapping("password")
-    public ModelAndView password(String length, String isUpperCase, String isPunctuation) {
+    public ModelAndView password(@RequestParam String length, String isUpperCase, String isPunctuation) {
         int mylength;
 
         ModelAndView m = new ModelAndView();

@@ -1,6 +1,8 @@
 package mytest.lang3.test;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 /**
  * Created by darcy on 2016/3/9.
@@ -8,26 +10,14 @@ import java.util.HashSet;
 public class Main {
 
     public static void main(String[] args) {
-        // 新建Person对象，
-        Person p1 = new Person("eee", 100);
-        Person p2 = new Person("eee", 100);
-        Person p3 = new Person("aaa", 200);
-        Person p4 = new Person("EEE", 100);
-
-        // 新建HashSet对象
-        HashSet set = new HashSet();
-        //set.add(p1);
-       // set.add(p2);
-       // set.add(p3);
-        //set.add(p4);
-
-        // 比较p1 和 p2， 并打印它们的hashCode()
-        System.out.printf("p1.equals(p2) : %s; p1(%d) p2(%d)\n", p1.equals(p2), p1.hashCode(), p2.hashCode());
-        // 比较p1 和 p4， 并打印它们的hashCode()
-        System.out.printf("p1.equals(p4) : %s; p1(%d) p4(%d)\n", p1.equals(p4), p1.hashCode(), p4.hashCode());
-        // 打印set
-        System.out.printf("set:%s\n", set);
+        String s1 = "Programming";
+        String s2 = new String("Programming");
+        String s3 = "Program" + "ming";
+        System.out.println(s1 == s2);
+        System.out.println(s1 == s3);
+        System.out.println(s1 == s1.intern());
     }
+
 
     /**
      * 34      * @desc Person类。
