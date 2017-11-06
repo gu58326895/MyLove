@@ -18,7 +18,7 @@ public class LogInterceptor {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Pointcut("execution(* com.darcytech.service.impl.VisitLogServiceImpl.save(..))")
+    @Pointcut("execution(* com.darcytech.service.VisitLogService.save(..))")
     private void log(){}
 
     @Around("log()")

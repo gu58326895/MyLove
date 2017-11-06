@@ -1,11 +1,19 @@
 package com.darcytech.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.darcytech.dao.VisitLogDao;
 import com.darcytech.model.VisitLog;
 
-/**
- * Created by GXL on 2016/7/26.
- */
-public interface VisitLogService {
+@Component
+public class VisitLogService {
 
-    VisitLog save(VisitLog visitLog);
+    @Autowired
+    VisitLogDao visitLogDao;
+
+
+    public VisitLog save(VisitLog visitLog) {
+        return visitLogDao.save(visitLog);
+    }
 }
