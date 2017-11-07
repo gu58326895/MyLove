@@ -39,4 +39,5 @@ public class SimpleController {
         return "redirect:/snow.html";
     }
 
+
 }

@@ -2,7 +2,7 @@
 #chkconfig:2345 80 90
 #description:mylove
 SERVICE_NAME=mylove
-PATH_TO_JAR=/data/mylove/demo-1.0-SNAPSHOT.jar
+PATH_TO_JAR=/data/mylove/myLove-1.0-SNAPSHOT.jar
 CLASS_PATH=/data/mylove:/data/mylove/lib/*
 MAIN_CLASS=com.darcytech.WebMain
 PID_PATH_NAME=/data/mylove/mylove-pid
