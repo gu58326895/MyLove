@@ -14,7 +14,7 @@ public class WebScheduled {
     Free115Service free115Service;
 
 
-    @Scheduled(fixedDelay = 1000L * 60)
+    //@Scheduled(fixedDelay = 1000L * 60)
     public void dispatch115(){
         free115Service.dispatch();
     }
